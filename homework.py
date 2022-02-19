@@ -1,14 +1,26 @@
 class InfoMessage:
     """Информационное сообщение о тренировке."""
-    
-    def show_training_info(Training):
-        def __init__(self,
-                     traibibg_tupe,
-                     duration,
-                     distance,
-                     speed,
-                     calories,
-                     )
+
+    def __init__(self,
+                training_type: str,
+                duration: float,
+                distance: float,
+                speed: float,
+                calories: float,
+                ) -> None:
+        self.training_type = training_type
+        self.duration = duration
+        self.distance = distance
+        self.speed = speed
+        self.calories = calories
+
+    def get_message(self):
+        """Вернкт сообщение в виде строки с данными о тренировке."""
+        return (f'Тип тренировки: {self.training_type}; Длительность: {self.duration:.3f} ч.;' 
+                f'Дистанция: {self.distance:.3f} км; Ср. скорость: {self.speed:.3f} км/ч;' 
+                f'Потрачено ккал: {self.calories:.3f}.')
+
+     
 
 
 class Training:
@@ -21,8 +33,7 @@ class Training:
                  action: int,
                  duration: float,
                  weight: float,
-                 ) -> None:
-        pass
+                 ) -> None:        
 
     def get_distance(self) -> float:
         """Получить дистанцию в км."""
