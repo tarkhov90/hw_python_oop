@@ -2,12 +2,11 @@ class InfoMessage:
     """Информационное сообщение о тренировке."""
 
     def __init__(self,
-                training_type: str,
-                duration: float,
-                distance: float,
-                speed: float,
-                calories: float,
-                ) -> None:
+                 training_type: str,
+                 duration: float,
+                 distance: float,
+                 speed: float,
+                 calories: float) -> None: 
         self.training_type = training_type
         self.duration = duration
         self.distance = distance
@@ -16,13 +15,13 @@ class InfoMessage:
 
     def get_message(self):
         """Вернкт сообщение в виде строки с данными о тренировке."""
-        return (f'Тип тренировки: {self.training_type};'
-                f'Длительность: {self.duration:.3f} ч.;' 
-                f'Дистанция: {self.distance:.3f} км;'
-                f'Ср. скорость: {self.speed:.3f} км/ч;' 
+        return (f'Тип тренировки: {self.training_type}; '
+                f'Длительность: {self.duration:.3f} ч.; ' 
+                f'Дистанция: {self.distance:.3f} км; '
+                f'Ср. скорость: {self.speed:.3f} км/ч; ' 
                 f'Потрачено ккал: {self.calories:.3f}.')
 
-     
+
 class Training:
     """Базовый класс тренировки."""
 
@@ -32,11 +31,10 @@ class Training:
     def __init__(self,
                  action: int,
                  duration: float,
-                 weight: float,
-                 ) -> None:
+                 weight: float) -> None:
         self.action = action
         self.duration = duration
-        self.weight = weight        
+        self.weight = weight      
 
     def get_distance(self) -> float:
         """Получить дистанцию в км."""
@@ -47,13 +45,11 @@ class Training:
             LEN_STEP = 0.65
 
         return self.action * LEN_STEP / self.M_IN_KM
-        
 
     def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
 
         return self.get_distance() / self.duration
-    
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
@@ -78,8 +74,7 @@ class Running(Training):
     def __init__(self, 
                  action: int,
                  duration: float,
-                 weight: float,
-                 ) -> None:
+                 weight: float) -> None:
         super().__init__(action, duration, weight)
     
     def get_spent_calories(self) -> float:
