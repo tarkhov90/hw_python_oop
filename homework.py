@@ -77,7 +77,7 @@ class Running(Training):
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
 
-        return (self.weight * (self.CALORIES_RUN_MULTIPLIER_1
+        return (self.weight * (self. CALORIES_RUN_MULTIPLIER_1
                 * self.get_mean_speed()
                 - self.CALORIES_RUN_MULTIPLIER_2)
                 / self.M_IN_KM * (self.duration
@@ -157,5 +157,5 @@ if __name__ == '__main__':
     ]
 
     for workout_type, data in packages:
-        training: Type[Training] = read_package(workout_type, data)
+        training: Training = read_package(workout_type, data)
         main(training)
